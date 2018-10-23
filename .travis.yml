@@ -1,8 +1,6 @@
 language: bash
 os:
-  - linux
   - windows
-  - macos
 sudo: false
 script:
   - set -e
