@@ -1,9 +1,7 @@
-language: bash
+language: dart
 os:
   - windows
 sudo: false
-script:
-  - set -e
-  - curl -o sdk.zip https://storage.googleapis.com/dart-archive/channels/stable/release/2.0.0/sdk/dartsdk-windows-x64-release.zip
-  - unzip sdk.zip
-  - dart-sdk/bin/dartanalyzer.bat bin/ 
+dart_task:
+- dartanalyzer: --fatal-warnings lib
+- dartfmt
