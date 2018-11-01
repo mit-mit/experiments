@@ -2,6 +2,7 @@ language: dart
 os:
   - windows
 sudo: false
+
 dart_task:
 - dartanalyzer: --fatal-warnings lib
 - dartfmt
