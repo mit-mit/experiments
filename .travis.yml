@@ -1,25 +1,10 @@
-language: bash
+language: dart
+
 os:
   - windows
+
 sudo: false
-script:
-  - # Fast fail the script on failures.
-  - set -e
-  - # Get Dart SDK
-  - mkdir travis
-  - echo "Home:"
-  - echo $HOME
-  - export TRAVIS_HOME="${HOME}/travis"
-  - echo "Travis home:"
-  - echo $TRAVIS_HOME
-  - curl --connect-timeout 15 --retry 5 https://storage.googleapis.com/dart-archive/channels/stable/release/latest/sdk/dartsdk-windows-x64-release.zip > ${TRAVIS_HOME}/dartsdk.zip
-  - unzip ${TRAVIS_HOME}/dartsdk.zip -d ${TRAVIS_HOME} > /dev/null
-  - rm ${TRAVIS_HOME}/dartsdk.zip
-  - export DART_SDK="${TRAVIS_HOME}/dart-sdk"
-  - echo "Path 1:"
-  - echo $PATH
-  - export PATH="$DART_SDK/bin:$PATH"
-  - export PATH="${TRAVIS_HOME}/.pub-cache/bin:$PATH"
-  - echo "Path 2:"
-  - echo $PATH
-  - dart --version
+
+dart_task:
+- dartanalyzer: --fatal-warnings lib
+- dartfmt
