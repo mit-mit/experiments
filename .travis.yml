@@ -1,8 +1,9 @@
 language: dart
 os:
   - windows
+  - linux
+  - osx
 sudo: false
 
 dart_task:
-- dartanalyzer: --fatal-warnings lib
 - dartfmt
