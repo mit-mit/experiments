@@ -7,3 +7,4 @@ sudo: false
 
 dart_task:
 - dartfmt
+- dartanalyzer
